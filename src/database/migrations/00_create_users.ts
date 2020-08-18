@@ -7,6 +7,8 @@ export async function up(knex:Knex) {
     table.string('name').notNullable();
     table.string('email').notNullable();
     table.string('password').notNullable();
+    table.string('recoverToken');
+    table.dateTime('recoverTokenExpires');
     table.string('interests').notNullable();
   }); 
 }

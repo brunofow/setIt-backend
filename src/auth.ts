@@ -1,12 +1,11 @@
 import { StrategyOptions, ExtractJwt, Strategy } from 'passport-jwt'; 
 import passport from 'passport';
 import db from './database/connection';
-import dotenv from 'dotenv';
-dotenv.config();
+import authConfig from '@configs/authConfig.json';
 
 const opts: StrategyOptions = {
   jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-  secretOrKey: process.env.JWT_SECRET
+  secretOrKey: authConfig.jwt_secret
 }
 
 interface Payload {
